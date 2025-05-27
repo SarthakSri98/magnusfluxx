@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Improve default text rendering */
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Custom scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+  }
+
+  /* Dark mode scrollbar */
+  @media (prefers-color-scheme: dark) {
+    ::-webkit-scrollbar-thumb {
+      background: #475569;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #64748b;
+    }
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /* Gradient text utility */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+  }
+
+  /* Glass morphism utility */
+  .glass {
+    @apply bg-white bg-opacity-10 backdrop-blur-lg backdrop-filter;
+  }
+
+  .glass-dark {
+    @apply bg-slate-900 bg-opacity-10 backdrop-blur-lg backdrop-filter;
+  }
+}
+
+/* Selection color */
+::selection {
+  @apply bg-indigo-500 bg-opacity-30 text-slate-900 dark:text-white;
+}
+
+/* Focus outline styles */
+*:focus-visible {
+  @apply outline-none ring-2 ring-indigo-500 ring-offset-2 ring-offset-white dark:ring-offset-slate-900;
+}
+
+/* Smooth anchor scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove tap highlight on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Better image rendering */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+} 

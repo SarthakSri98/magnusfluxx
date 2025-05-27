@@ -1,3 +1,6 @@
+import { useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+
 interface VideoModalProps {
     isOpen: boolean
     onClose: () => void
@@ -5,33 +8,68 @@ interface VideoModalProps {
 }
 
 export default function VideoModal({ isOpen, onClose, videoUrl }: VideoModalProps) {
-    if (!isOpen) return null
+    // Prevent body scroll when modal is open
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'unset'
+        }
+        return () => {
+            document.body.style.overflow = 'unset'
+        }
+    }, [isOpen])
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-            <div
-                className="absolute inset-0 bg-black/50"
-                onClick={onClose}
-            />
-            <div className="relative z-10 w-full max-w-4xl rounded-lg bg-white p-4 dark:bg-slate-800">
-                <button
-                    onClick={onClose}
-                    className="absolute -right-4 -top-4 rounded-full bg-white p-2 text-slate-900 shadow-lg hover:bg-slate-100 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600"
-                >
-                    <span className="sr-only">Close</span>
-                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-                <div className="relative aspect-video">
-                    <iframe
-                        src={videoUrl}
-                        className="absolute inset-0 h-full w-full rounded-lg"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
+        <AnimatePresence>
+            {isOpen && (
+                <>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={onClose}
+                        className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm"
                     />
-                </div>
-            </div>
-        </div>
+
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        className="fixed left-1/2 top-1/2 z-50 w-full max-w-5xl -translate-x-1/2 -translate-y-1/2 px-4"
+                    >
+                        <div className="relative overflow-hidden rounded-2xl bg-white shadow-2xl dark:bg-slate-900">
+                            <button
+                                onClick={onClose}
+                                className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-2 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+                            >
+                                <svg
+                                    className="h-5 w-5"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M6 18L18 6M6 6l12 12"
+                                    />
+                                </svg>
+                            </button>
+
+                            <div className="relative aspect-video">
+                                <iframe
+                                    src={videoUrl}
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    className="absolute inset-0 h-full w-full"
+                                />
+                            </div>
+                        </div>
+                    </motion.div>
+                </>
+            )}
+        </AnimatePresence>
     )
 }

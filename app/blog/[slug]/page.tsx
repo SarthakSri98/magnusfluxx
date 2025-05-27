@@ -1,8 +1,6 @@
 import { getBlogPost, getBlogPosts } from '@/lib/blog'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
-import { remark } from 'remark'
-import html from 'remark-html'
 
 // Generate static paths for all blog posts
 export async function generateStaticParams() {
@@ -19,52 +17,57 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
     return {
         title: `${post.title} | Magnus Fluxx`,
-        description: post.description,
+        description: post.excerpt,
         openGraph: {
             title: post.title,
-            description: post.description,
+            description: post.excerpt,
             type: 'article',
             publishedTime: post.date,
         },
     }
 }
 
-async function markdownToHtml(markdown: string) {
-    const result = await remark().use(html).process(markdown)
-    return result.toString()
-}
-
 export default async function BlogPost({ params }: { params: { slug: string } }) {
     const post = await getBlogPost(params.slug)
     if (!post) notFound()
 
-    const content = await markdownToHtml(post.content)
-
     return (
-        <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-            <div className="flex gap-2">
-                {post.tags.map(tag => (
+        <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-4 text-sm">
+                <time
+                    dateTime={post.date}
+                    className="font-medium text-slate-500 dark:text-slate-400"
+                >
+                    {new Date(post.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                    })}
+                </time>
+                <span className="text-slate-400 dark:text-slate-500">•</span>
+                <span className="font-medium text-slate-500 dark:text-slate-400">
+                    {post.readingTime}
+                </span>
+            </div>
+
+            <h1 className="mt-6 font-inter text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+                {post.title}
+            </h1>
+
+            <div className="mt-4 flex flex-wrap gap-2">
+                {post.tags.map((tag) => (
                     <span
                         key={tag}
-                        className="inline-flex items-center rounded-full bg-lavender-50 px-2.5 py-0.5 text-xs font-medium text-lavender-700 dark:bg-lavender-900 dark:text-lavender-300"
+                        className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-300"
                     >
                         {tag}
                     </span>
                 ))}
             </div>
-            <h1 className="mt-4 font-display text-4xl font-bold text-gray-900 dark:text-white">
-                {post.title}
-            </h1>
-            <time className="mt-4 block text-sm text-gray-500 dark:text-gray-500">
-                {new Date(post.date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                })}
-            </time>
+
             <div
-                className="prose prose-lg mt-8 dark:prose-invert prose-headings:font-display prose-a:text-lavender-600 dark:prose-a:text-lavender-400"
-                dangerouslySetInnerHTML={{ __html: content }}
+                className="prose prose-lg mt-8 prose-slate dark:prose-invert prose-headings:font-inter prose-a:text-indigo-600 dark:prose-a:text-indigo-400"
+                dangerouslySetInnerHTML={{ __html: post.content }}
             />
         </article>
     )
