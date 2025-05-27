@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import ProjectCard from '@/components/ProjectCard'
-import VideoModal from '@/components/VIdeoModal'
+import VideoModal from '@/components/BlogVideoModal'
 import BlogCard from '@/components/BlogCard'
 import type { BlogPost } from '@/components/BlogCard'
 

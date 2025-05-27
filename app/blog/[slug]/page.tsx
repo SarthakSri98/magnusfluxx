@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { getBlogPost, getBlogPosts } from '@/lib/blog'
 import { notFound } from 'next/navigation'
-import { Metadata } from 'next'
 
 // Generate static paths for all blog posts
 export async function generateStaticParams() {
@@ -11,8 +11,8 @@ export async function generateStaticParams() {
 }
 
 // Generate metadata for each blog post
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-    const post = await getBlogPost(params.slug)
+export async function generateMetadata(props: any): Promise<any> {
+    const post = await getBlogPost(props.params.slug)
     if (!post) return { title: 'Not Found' }
 
     return {
@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     }
 }
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
-    const post = await getBlogPost(params.slug)
+export default async function BlogPost(props: any) {
+    const post = await getBlogPost(props.params.slug)
     if (!post) notFound()
 
     return (
