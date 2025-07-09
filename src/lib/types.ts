@@ -9,6 +9,12 @@ export interface Frontmatter {
     role?: string;
     timeline?: string;
     tools?: string[];
+    // Product-specific fields
+    demoVideo?: string;
+    status?: 'Live' | 'Beta' | 'In Progress';
+    learnings?: string[];
+    sourceUrl?: string;
+    liveUrl?: string;
 }
 
 export interface ContentItem {
