@@ -1,3 +1,6 @@
+import fs from 'fs/promises';
+import path from 'path';
+import matter from 'gray-matter';
 import { type ContentType, type ContentItem, type Frontmatter } from './types';
 
 // Helper to convert file path to slug path
@@ -11,27 +14,37 @@ export async function getAllContent(type: ContentType): Promise<ContentItem[]> {
     let contentPath = '';
     switch (type) {
         case 'products':
-            contentPath = '../../content/my-products';
+            contentPath = 'products';
             break;
         case 'case-studies':
-            contentPath = '../../content/case-studies';
+            contentPath = 'case-studies';
             break;
         case 'blogs':
-            contentPath = '../../content/blog';
+            contentPath = 'blogs';
             break;
     }
 
     const items: ContentItem[] = [];
+    const fullPath = path.join(process.cwd(), 'content', contentPath);
 
     try {
-        const mdxModule = await import(contentPath);
-        const { metadata, default: content } = mdxModule;
+        const files = await fs.readdir(fullPath);
+        const mdFiles = files.filter(file => file.endsWith('.md'));
 
-        items.push({
-            content,
-            frontmatter: metadata as Frontmatter,
-            slugPath: filePathToSlug(contentPath),
+        const contentPromises = mdFiles.map(async (file) => {
+            const filePath = path.join(fullPath, file);
+            const content = await fs.readFile(filePath, 'utf8');
+            const { data: frontmatter, content: mdContent } = matter(content);
+
+            return {
+                content: mdContent,
+                frontmatter: frontmatter as Frontmatter,
+                slugPath: [file.replace(/\.md$/, '')],
+            };
         });
+
+        const contents = await Promise.all(contentPromises);
+        items.push(...contents);
     } catch (error) {
         console.error(`Error loading content for ${type}:`, error);
     }
