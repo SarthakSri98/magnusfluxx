@@ -7,7 +7,7 @@ const CONTENT_PATH = join(process.cwd(), 'content');
 
 // Map content types to their directory names
 const contentTypeMap: Record<ContentType, string> = {
-    products: 'my-products',
+    products: 'products',
     'case-studies': 'case-studies',
     blogs: 'blogs',
 };

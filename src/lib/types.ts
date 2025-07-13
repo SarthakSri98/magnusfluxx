@@ -15,6 +15,7 @@ export interface Frontmatter {
     learnings?: string[];
     sourceUrl?: string;
     liveUrl?: string;
+    relatedBlogs?: string[];
 }
 
 export interface ContentItem {

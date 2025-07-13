@@ -4,9 +4,27 @@ import matter from 'gray-matter';
 import { type ContentType, type ContentItem, type Frontmatter } from './types';
 
 // Helper to convert file path to slug path
-function filePathToSlug(filePath: string): string[] {
-    // Remove extension and split into parts
-    return filePath.replace(/\.[^/.]+$/, '').split('/').filter(Boolean);
+function filePathToSlug(filePath: string, basePath: string): string[] {
+    // Remove the base path and extension, then split into parts
+    const relativePath = path.relative(basePath, filePath);
+    return relativePath.replace(/\.[^/.]+$/, '').split('/').filter(Boolean);
+}
+
+// Recursively get all .md files from a directory
+async function getMarkdownFiles(dir: string): Promise<string[]> {
+    const files: string[] = [];
+    const items = await fs.readdir(dir, { withFileTypes: true });
+
+    for (const item of items) {
+        const fullPath = path.join(dir, item.name);
+        if (item.isDirectory()) {
+            files.push(...(await getMarkdownFiles(fullPath)));
+        } else if (item.isFile() && item.name.endsWith('.md')) {
+            files.push(fullPath);
+        }
+    }
+
+    return files;
 }
 
 // Get all content files of a specific type
@@ -28,18 +46,16 @@ export async function getAllContent(type: ContentType): Promise<ContentItem[]> {
     const fullPath = path.join(process.cwd(), 'content', contentPath);
 
     try {
-        const files = await fs.readdir(fullPath);
-        const mdFiles = files.filter(file => file.endsWith('.md'));
+        const files = await getMarkdownFiles(fullPath);
 
-        const contentPromises = mdFiles.map(async (file) => {
-            const filePath = path.join(fullPath, file);
+        const contentPromises = files.map(async (filePath) => {
             const content = await fs.readFile(filePath, 'utf8');
             const { data: frontmatter, content: mdContent } = matter(content);
 
             return {
                 content: mdContent,
                 frontmatter: frontmatter as Frontmatter,
-                slugPath: [file.replace(/\.md$/, '')],
+                slugPath: filePathToSlug(filePath, fullPath),
             };
         });
 

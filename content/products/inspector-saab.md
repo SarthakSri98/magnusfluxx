@@ -2,7 +2,7 @@
 title: "Inspector Saab"
 description: "Edit any website using plain English. Inspector Saab translates your intent into real-time changes—no coding, no DevTools, just words."
 date: "2024-03-20"
-image: "/images/products/inspector-saab/cover.png"
+image: "/inspectorsaab.png"
 demoVideo: "/images/products/inspector-saab/demo.mp4"
 status: "Launched"
 featured: true
