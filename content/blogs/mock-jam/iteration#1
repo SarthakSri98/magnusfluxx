@@ -1,0 +1,97 @@
+---
+title: "Iteration #1: Not everybody was ready to Mock - The Library Section"
+description: ""
+date: "2024-03-23"
+tags: ["AI", "Product Management", "Interview Preparation"]
+---
+
+# Not Everyone’s Ready to Mock - Why We Built the Library Section in MockJam
+
+When I first built MockJam, the idea was simple:  
+An AI-powered gym for product managers.  
+
+You show up, get a real interview question, hit "Start Mock", speak your answer, and get instant feedback.  
+It was meant to help people *practice actively*, not passively consume theory.
+
+And for some users - it worked brilliantly.
+
+But for many others, it didn’t work at all.  
+They landed, hesitated... and bounced.
+
+---
+
+## ❌ The Friction I Overlooked
+
+The core call-to-action - **“Start a Mock Interview”** - was demanding more than I realized.
+
+It assumed the user:
+- Felt mentally ready to be judged
+- Knew what a decent PM answer even sounds like
+- Could think aloud, structure their response, and perform on the spot
+
+But for most early-stage PMs or career switchers, that’s terrifying.  
+They want to *lurk*, *learn*, *absorb* - not perform right away.
+
+MockJam was built like a gym.  
+But most people don’t show up to a gym and immediately try deadlifting 200 kg.  
+They walk around first. Watch others. Try the lighter machines.
+
+---
+
+## 💡 The Insight: Lurking is a Valid First Step
+
+This was the mindset shift for me:  
+> **Lurking isn't a problem - it's a stage. And we weren’t serving it.**
+
+I started reviewing user recordings (or the absence of them), session drop-offs, and even feedback from friends.  
+People didn’t want to quit. They just didn’t know where to *start*.
+
+They didn’t want *less value* - they wanted *a lower-pressure way in*.
+
+---
+
+## 🛠️ The Iteration: Introducing the Library
+
+To fix this, we built the **Library section** - a soft landing spot for users who aren’t ready to mock, but still want to improve.
+
+Instead of forcing them to “perform,” we let them:
+- **Explore real interview questions** from Meta, Google, Uber, Swiggy, etc.
+- **Read structured rubrics** that show what interviewers are looking for
+- **See full mock transcripts** with annotated answers (e.g. ✅ *"clarified the user"*, ✅ *"prioritized trade-offs"*)
+- And **only then** decide if they want to mock the question themselves
+
+Each blog-style post is based on a real mock interview conducted on MockJam.  
+So it’s not theory - it’s what good actually looks like.
+
+---
+
+## 🔄 Product Thinking Behind It
+
+This wasn’t just a UI improvement. It was a **product posture change**.  
+Instead of treating everyone like they’re ready to be on stage, we created a backstage.
+
+A few things I kept in mind:
+
+- **User stage mapping**: Lurkers → Explorers → Performers  
+- **No overwhelm**: Only 6–8 questions visible at once. We highlight “Question of the Day” or “Most Watched” to guide them.  
+- **Built-in transition**: Every page has a **"Mock This Interview"** CTA - but it's optional, not forced.  
+- **Familiar patterns**: It feels like a blog or content feed - something users are already comfortable consuming.
+
+---
+
+## 🎯 The Goal: Convert Quiet Browsers Into Confident Practitioners
+
+The Library isn’t a distraction from the core value - it’s a bridge to it.
+
+It helps users:
+- Understand what “good” sounds like
+- Build confidence quietly
+- And eventually start practicing actively
+
+In hindsight, this was less about adding a feature - and more about acknowledging a user truth:  
+**Not everyone is ready. But most people want to be.**
+
+And it’s our job to help them get there.
+
+---
+

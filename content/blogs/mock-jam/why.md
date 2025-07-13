@@ -4,81 +4,81 @@ description: "An AI Mock interivewer tool for PMs and aspiring PMs."
 date: "2024-03-23"
 tags: ["api", "development", "testing"]
 ---
+# How I Got the Idea for Building MockJam
 
-# How I got the idea for building MockJam
-
-When I decided to transition into product management, I wasn’t short on skills — but I was short on feedback.
+When I decided to transition into product management, I wasn’t short on skills - but I was short on feedback.
 
 - I had a strong technical foundation.
 - I understood frameworks like **CIRCLES**, **RICE**, and **MoSCoW**.
-- But I kept falling into the same traps:
+- But I kept falling into familiar traps:
   - Jumping straight to solutions.
   - Rambling instead of structuring my thoughts.
   - Struggling to speak clearly under pressure.
 
-Reading wasn't enough. These habits needed to be rewired, and that meant *deliberate practice*.
+Reading wasn't enough. These habits needed to be rewired through *deliberate, repetitive practice*.
 
 ---
 
 ## My First Attempts
 
-I started small. Practiced on my own.
+I started small and Practiced on my own.
 
-- Used **ChatGPT** to simulate product sense questions.
-- Spoke my answers out loud — just like in real interviews.
-- It caught a few patterns — especially when I skipped user thinking or lacked structure.
+- Practiced product sense questions with **ChatGPT**.
+- Spoke my answers aloud, to simulate real interviews.
+- It helped catch patterns like skipping user thinking or diving into features too quickly.
 
-But there was a catch:
-- **ChatGPT was often too polite.**
-- I had to **manually remind it to act like a tough interviewer**.
-- That meant re-pasting prompts, aligning tone, and constantly adjusting its behavior.
+But there was friction:
+- **ChatGPT was too polite**, often overpraising weak answers.
+- I had to **re-paste prompts repeatedly**, forcing it to behave like a tough interviewer.
+- The manual setup meant I eventually started avoiding it.
 
-Over time, that friction added up.
+> Any process with friction, even mild, is hard to sustain.  
+> The brain starts avoiding it, or doing it less often.
 
-> Any process with even mild effort friction becomes harder to sustain —  
-> and our brains start avoiding it or doing it less often.
-
-I needed a way to make the loop seamless. No manual setup. No babysitting the AI. Started giving mocks with peers, started seeing improvement so I decided to give as many mocks as I can. But...
+That’s when I started giving mocks with peers. And that’s when the learning accelerated. Every session gave me clarity: what I improved, what I needed to fix. I wanted to keep going. But...
 
 ---
 
 ## The Real Problem
 
-Mock interviews although a solution for a very big problem i.e. preparation for interviews, is still avoided by people. 
+Most candidates, including me, knew mock interviews worked.  
+But no one did them consistently. Why?
 
-So, I decided to take this as a case study to solve. I started observing and talking to peers in the HelloPM community, floated a survey form, scanning slack groups and product subreddits and found some real pain points. I realised every single PM realised the importance of mocks just as me but there were multiple reasons they weren't giving mocks. Why?
+I started treating this like a real product problem. I ran a survey, talked to peers in HelloPM community, and scanned Slack/product subreddits.
 
-- Hard to **find serious partners**.
-- People felt **underprepared or nervous**.
-- Feedback was often too **vague or sugar-coated** to be useful.
-- They kept **running beind** other's calendars.
+Here’s what I learned:
+
+- People felt **underprepared** and didn’t want to look “dumb.”
+- **Scheduling with partners** was painful and slow.
+- Feedback was **too vague**, often polite instead of useful.
+- Everyone knew mocks worked - but few made it a habit.
 
 These weren’t technical problems.  
-They were human ones, driven by hesitation, social dynamics, and inconsistent setups.
+They were human ones, driven by hesitation, social dynamics, and inconsistent setups
 
-That’s where I saw an opportunity, not just to build a tool, but to **reduce friction in a loop that worked**. Cricketers have nets to practice, Engineers have leetcode, why not we product people have something to practice on?
-
+That’s where I saw an opportunity, not just to build a tool, but to **reduce friction in a loop that worked**. 
+- Cricketers have nets to practice, 
+- Engineers have, leetcode
+- But, We product folks? 
 ---
 
 ## Building MockJam
 
-I didn’t set out to build a full-fledged product. I just wanted to *solve my own problem fast*.
+I didn’t try to build a polished product from day one.  
+I scoped just enough to solve *my* loop with minimal friction.
 
-- Used **Cursor's agentic mode** to move quicker.
-- Built the **frontend, backend, and deployment** myself.
-- Leveraged past experience with **AI prompting and response control**.
-- Delivered the MVP in **under 2 weeks**.
+- Used **Cursor’s agentic mode** to speed up development.
+- Built the **frontend, backend, and auth layer** myself.
+- Used my past experience with **AI prompting** to fine-tune interview behavior.
+- Shipped the first working version in **under 2 weeks**.
 
-Then I became my own user, testing it on myself from day one.
+Then I used it. Daily.
+
+The mocks forced me to slow down, be clear, and structure better.  
+The product improved as I improved.  
+Each feedback session refined both the tool and my own responses.
 
 ---
 
-## What Changed For Me
-
-Practicing with MockJam started shaping my thinking.
-
-- Every mock pushed me to **slow down and structure** my responses.
-- The feedback loop helped me **break bad habits** and build better ones.
-- Improving the product and improving myself started feeding into each other.
-
-It wasn’t just helping me speak better, it was helping me *think* better and this product helped me to move from a builder's mindset to a product mindset.
+This blog is the start of a series.  
+In the next posts, I’ll go deeper into individual product decisions, from how I structured feedback, to why I rejected peer-to-peer formats, to how I’m thinking about habit formation and retention.
