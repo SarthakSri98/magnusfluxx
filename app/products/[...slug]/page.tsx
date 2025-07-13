@@ -1,17 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ExternalLink, Code2, BookOpen } from "lucide-react";
 import { getContentBySlug, getAllContent } from "@/lib/content";
 import { notFound } from "next/navigation";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-interface Props {
-    params: {
-        slug: string[];
-    };
-}
-
-export default async function ProductPage({ params }: Props) {
+export default async function ProductPage({ params }: any) {
     const product = await getContentBySlug("products", params.slug);
     if (!product) {
         notFound();
@@ -97,9 +92,11 @@ export default async function ProductPage({ params }: Props) {
                                 className="w-full aspect-video object-cover"
                             />
                         ) : product.frontmatter.image ? (
-                            <img
+                            <Image
                                 src={product.frontmatter.image}
                                 alt={product.frontmatter.title}
+                                width={480}
+                                height={270}
                                 className="w-full aspect-video object-cover"
                             />
                         ) : null}
@@ -134,19 +131,19 @@ export default async function ProductPage({ params }: Props) {
                             <ReactMarkdown
                                 remarkPlugins={[remarkGfm]}
                                 components={{
-                                    h1: (props) => <h1 className="text-3xl font-bold mb-6 mt-8" {...props} />,
-                                    h2: (props) => <h2 className="text-2xl font-bold mb-4 mt-8" {...props} />,
-                                    h3: (props) => <h3 className="text-xl font-bold mb-3 mt-6" {...props} />,
-                                    p: (props) => <p className="mb-4 leading-relaxed" {...props} />,
-                                    ul: (props) => <ul className="list-disc list-inside mb-4 space-y-2" {...props} />,
-                                    ol: (props) => <ol className="list-decimal list-inside mb-4 space-y-2" {...props} />,
-                                    li: (props) => <li className="text-gray-700 dark:text-gray-300" {...props} />,
-                                    strong: (props) => <strong className="font-bold text-gray-900 dark:text-white" {...props} />,
-                                    em: (props) => <em className="italic text-gray-800 dark:text-gray-200" {...props} />,
-                                    blockquote: (props) => (
+                                    h1: (props: any) => <h1 className="text-3xl font-bold mb-6 mt-8" {...props} />,
+                                    h2: (props: any) => <h2 className="text-2xl font-bold mb-4 mt-8" {...props} />,
+                                    h3: (props: any) => <h3 className="text-xl font-bold mb-3 mt-6" {...props} />,
+                                    p: (props: any) => <p className="mb-4 leading-relaxed" {...props} />,
+                                    ul: (props: any) => <ul className="list-disc list-inside mb-4 space-y-2" {...props} />,
+                                    ol: (props: any) => <ol className="list-decimal list-inside mb-4 space-y-2" {...props} />,
+                                    li: (props: any) => <li className="text-gray-700 dark:text-gray-300" {...props} />,
+                                    strong: (props: any) => <strong className="font-bold text-gray-900 dark:text-white" {...props} />,
+                                    em: (props: any) => <em className="italic text-gray-800 dark:text-gray-200" {...props} />,
+                                    blockquote: (props: any) => (
                                         <blockquote className="border-l-4 border-gray-200 dark:border-gray-700 pl-4 italic my-4" {...props} />
                                     ),
-                                    code: ({ children, className, ...props }: { children: React.ReactNode, className?: string, inline?: boolean }) => {
+                                    code: ({ children, className, ...props }: any) => {
                                         const match = /language-(\w+)/.exec(className || '');
                                         const inline = !match;
                                         return inline

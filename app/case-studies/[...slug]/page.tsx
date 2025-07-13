@@ -1,13 +1,8 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getContentBySlug } from "@/lib/content";
 
-interface CaseStudyPageProps {
-    params: {
-        slug: string[];
-    };
-}
-
-export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
+export default async function CaseStudyPage({ params }: any) {
     const content = await getContentBySlug("case-studies", params.slug);
 
     if (!content) {
@@ -22,9 +17,11 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                     <p className="text-xl text-muted-foreground">{content.frontmatter.description}</p>
                 )}
                 {content.frontmatter.image && (
-                    <img
+                    <Image
                         src={content.frontmatter.image}
                         alt={content.frontmatter.title}
+                        width={800}
+                        height={400}
                         className="w-full h-[400px] object-cover rounded-lg mt-8"
                     />
                 )}
@@ -88,7 +85,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 }
 
 // Generate static paths at build time
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<any> {
     const caseStudies = await getContentBySlug('case-studies', []);
     return caseStudies ? [{ slug: caseStudies.slugPath }] : [];
 } 

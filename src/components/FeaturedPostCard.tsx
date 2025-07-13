@@ -7,12 +7,13 @@ import { ArrowUpRight } from 'lucide-react';
 interface FeaturedPostCardProps {
     title: string;
     description: string;
-    image: string;
+    image?: string;
     tags: string[];
     href: string;
     type: 'product' | 'case-study' | 'blog';
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function FeaturedPostCard({ title, description, image, tags, href, type }: FeaturedPostCardProps) {
     const typeColors = {
         'product': 'from-blue-500/20 to-purple-500/20 group-hover:from-blue-500/30 group-hover:to-purple-500/30',

@@ -22,4 +22,5 @@ export interface ContentItem {
     content: string;
     frontmatter: Frontmatter;
     slugPath: string[];
+    subRoutes?: string[];
 } 

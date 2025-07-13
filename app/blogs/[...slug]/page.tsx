@@ -1,13 +1,8 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getContentBySlug } from "@/lib/content";
+import { getContentBySlug, getAllContent } from "@/lib/content";
 
-interface BlogPageProps {
-    params: {
-        slug: string[];
-    };
-}
-
-export default async function BlogPage({ params }: BlogPageProps) {
+export default async function BlogPage({ params }: any) {
     const content = await getContentBySlug("blogs", params.slug);
 
     if (!content) {
@@ -22,9 +17,11 @@ export default async function BlogPage({ params }: BlogPageProps) {
                     <p className="text-xl text-muted-foreground">{content.frontmatter.description}</p>
                 )}
                 {content.frontmatter.image && (
-                    <img
+                    <Image
                         src={content.frontmatter.image}
                         alt={content.frontmatter.title}
+                        width={800}
+                        height={400}
                         className="w-full h-[400px] object-cover rounded-lg mt-8"
                     />
                 )}
@@ -57,9 +54,9 @@ export default async function BlogPage({ params }: BlogPageProps) {
 }
 
 // Generate static paths at build time
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<any> {
     const blogs = await getAllContent('blogs');
-    return blogs.map(blog => ({
+    return blogs.map((blog: any) => ({
         slug: blog.slugPath,
     }));
 } 
