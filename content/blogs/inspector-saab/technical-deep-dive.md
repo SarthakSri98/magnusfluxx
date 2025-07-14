@@ -2,7 +2,7 @@
 title: "Technical Deep Dive: How Inspector Saab Works"
 description: "A detailed look at the architecture, implementation, and technical decisions behind Inspector Saab's natural language web editing capabilities."
 date: "2024-03-21"
-image: "/images/blogs/inspector-saab/technical-deep-dive.png"
+image: "/inspectorsaab.png"
 tags: ["Engineering", "Architecture", "AI", "Chrome Extension"]
 relatedProduct: "inspector-saab"
 type: "Technical"

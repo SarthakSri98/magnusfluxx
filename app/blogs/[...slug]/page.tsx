@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import { getContentBySlug, getAllContent } from "@/lib/content";
 
 export default async function BlogPage({ params }: any) {
-    const content = await getContentBySlug("blogs", params.slug);
+    const resolvedParams = await params;
+    const content = await getContentBySlug("blogs", resolvedParams.slug);
 
     if (!content) {
         notFound();

@@ -2,7 +2,7 @@
 title: "User Research and Impact: Your Product Name"
 description: "Insights from user research, feedback analysis, and the impact of Your Product Name on its users."
 date: "2024-03-22"
-image: "/images/blogs/your-product-name/user-research.png"
+# image: "/images/blogs/your-product-name/user-research.png"
 tags: ["User Research", "Product Impact", "User Experience"]
 relatedProduct: "your-product-name"
 type: "Research"

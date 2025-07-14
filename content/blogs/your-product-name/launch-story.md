@@ -2,7 +2,7 @@
 title: "Building and Launching Your Product Name: A Journey"
 description: "An in-depth look at the development process, challenges overcome, and lessons learned while building Your Product Name."
 date: "2024-03-20"
-image: "/images/blogs/your-product-name/launch-story.png"
+# image: "/images/blogs/your-product-name/launch-story.png"
 tags: ["Product Development", "Launch", "Engineering"]
 relatedProduct: "your-product-name"
 type: "Product Story"

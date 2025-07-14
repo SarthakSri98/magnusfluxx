@@ -2,7 +2,7 @@
 title: "The Journey of Building and Launching Product Name"
 description: "Detailed story about the development and launch process"
 date: "2024-03-20"
-image: "/images/blogs/product-1/launch-story.png"
+# image: "/images/blogs/product-1/launch-story.png"
 tags: ["Product Development", "Launch", "Lessons Learned"]
 relatedProduct: "product-1"
 type: "Product Story"

@@ -1,8 +1,7 @@
 ---
 title: "Mock Jam"
-description: "AI-powered API mocking that understands your specs and generates realistic test data. No more manual mock maintenance."
-date: "2024-03-23"
-status: "Beta"
+description: "AI-Powered Mock Interviews for Product Managers"
+status: "Live"
 featured: true
 image: "/mockjam.png"
 tools: [
@@ -13,64 +12,28 @@ tools: [
   "MongoDB"
 ]
 relatedBlogs: [
-  "mock-jam/launch-story"
+  "mock-jam/actual-interview-experience",
+  "mock-jam/feedback",
+  "mock-jam/iteration#1",
+  "mock-jam/prd",
+  "mock-jam/skipped-a-feature",
+  "mock-jam/why"
+
 ]
-sourceUrl: "https://github.com/yourusername/mock-jam"
-liveUrl: "https://mock-jam.dev"
+# sourceUrl: "https://github.com/yourusername/mock-jam"
+liveUrl: "https://mockjam.app"
 ---
 
 ## Overview
 
-Mock Jam is an intelligent API mocking platform that uses AI to understand your API specs and generate realistic mock data. It's designed to:
+### MockJam - AI-Powered Mock Interviews for Product Managers
 
-- Automatically sync with your API documentation
-- Generate realistic test data
-- Handle complex scenarios
-- Deploy instantly
+**Problem:**  
+Most aspiring PMs struggle to get real mock interview practice. Finding partners is hard, and feedback is often vague or sugar-coated. Worse — many users don’t feel ready to “perform” on command.
 
-## Features
+**How I’m fixing it:**  
+**MockJam** gives users real product management questions, simulates the interview experience with AI, and provides structured, actionable feedback.  
+To support users who aren’t ready to jump into a mock, we introduced a **Library** — a low-pressure space where they can explore real questions, rubrics, and annotated answers from featured mock interviews.
 
-### Core Features
-
-- **Smart Mock Generation**  
-  AI understands your API specs and generates contextually appropriate data.
-
-- **Real-time Sync**  
-  Automatically updates mocks when your API specs change.
-
-- **Scenario Builder**  
-  Create and manage complex test scenarios visually.
-
-### Technical Innovation
-
-- **AI-Powered Understanding**  
-  Uses GPT-4 to parse and understand API specifications.
-
-- **Smart Data Generation**  
-  Generates realistic, contextual data based on field names and types.
-
-- **Version Control**  
-  Track changes and roll back to previous versions easily.
-
-## Use Cases
-
-### Development
-
-- Rapid prototyping without waiting for backend
-- Testing edge cases and error scenarios
-- Local development with realistic data
-
-### Testing
-
-- Automated testing with consistent data
-- Performance testing with large datasets
-- Integration testing with multiple scenarios
-
-## What's Next
-
-- GraphQL support
-- More intelligent data generation
-- Team collaboration features
-- CI/CD integration
-
-Join us in making API mocking enjoyable again!
+**What I learned:**  
+Not everyone enters ready to perform. Designing for **user readiness stages** — from lurkers to explorers to performers — helped us reduce friction, increase engagement, and build trust with first-time users.

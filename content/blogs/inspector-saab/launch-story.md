@@ -2,94 +2,87 @@
 title: "Building and Launching Inspector Saab: Making Web Editing Human"
 description: "The journey of creating a Chrome extension that lets anyone edit any website using plain English-no code required."
 date: "2024-03-20"
-image: "/images/blogs/inspector-saab/launch-story.png"
+image: "/inspectorsaab.png"
 tags: ["Product Development", "Launch", "AI", "Chrome Extension"]
 relatedProduct: "inspector-saab"
 type: "Product Story"
 featured: true
 ---
+# 🕵️‍♂️ Building Inspector Saab  
+### What a Chrome extension taught me about product thinking in the age of AI
 
-# Building and Launching Inspector Saab
+> “I didn’t build a text-to-JSON tool. I built an interface for human intent.”
 
-The journey of Inspector Saab began with a simple, yet powerful question: *What if natural language could actually modify a website's structure or style, live?* This isn't just another story about building a product-it's about reimagining how we interact with the web itself.
+---
 
-## The Genesis
+## 🚧 The Problem
 
-While exploring structured outputs from AI-specifically using ChatGPT to turn English into JSON-I had an epiphany. Instead of building yet another no-code platform or Notion clone, why not democratize web editing itself? The vision was clear: make the web editable by anyone, using the most natural interface we have-human language.
+Everyone talks about AI making things easier. But when I looked at tools that let you "edit with AI," they were either:
 
-## Development Journey
+- **Too abstract** (generate a full landing page but not change an existing one),
+- **Too rigid** (limited to predefined templates or no-code zones),
+- Or **too dev-heavy** (inspect element, write JS, inject manually).
 
-### The First Prototype
+What was missing was a way to *just point at a site and say what you want*.  
+No dev tools. No API docs. Just words.
 
-The initial version was bare-bones but magical. It could understand simple commands like "make headings blue" or "center this text." The real magic wasn't in the technical implementation-it was in the faces of first-time users when they saw their words literally changing the web in real-time.
+So I asked myself:
+**What if you could change any website with plain English?**
 
-### Key Technical Decisions
+---
 
-1. **Safety First**
-   - Every change stays in the user's sandbox
-   - No server-side modifications
-   - Pure client-side magic
+## 🎥 Watch the Demo
 
-2. **Speed Over Perfection**
-   - Instant visual feedback
-   - Highlighted changes for clarity
-   - Fail fast, fail visibly
+For a quick overview of how Inspector Saab works, check out our [YouTube demo](https://youtu.be/8Ca8_znZgu8). This video walks you through the key features and shows the extension in action, making web editing as simple as speaking your intent.
 
-3. **Natural Language Processing**
-   - Custom prompt engineering for DOM manipulation
-   - Context-aware command interpretation
-   - Graceful handling of ambiguous requests
+<iframe width="930" height="582" src="https://www.youtube.com/embed/8Ca8_znZgu8" title="Inspector Saab – Edit Any Website Instantly Using Plain English" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-## The "Aha!" Moments
 
-### Moment 1: The Text Targeting Challenge
-A friend typed: "Highlight the word 'chakra' in this blog"
+Here are a few moments where real user friction shaped real product decisions:
 
-The system failed spectacularly. This led to a crucial realization: we needed smarter text content analysis. The solution? A custom highlight handler that could understand text-specific targeting.
+### 🟨 Moment 1: The Blank Prompt Paralysis  
+**User behavior:** They'd install the extension, open the popup… and freeze.
 
-### Moment 2: The Interaction Request
-Someone asked: "Make this scroll smoothly to top when I click"
+**Why?**  
+They didn’t know what to type.  
+Not laziness - just no mental model of what was possible.
 
-This sparked an internal debate: should we support JavaScript event handlers? We found a middle ground-allowing safe scroll-based events only. It was a lesson in balancing power with safety.
+**Product move:**  
+I added **suggested prompts** - like “make the text red” or “add a scroll to top button” - that:
+- Had immediate visual payoff,
+- Were safe to run,
+- And showed what the tool *could* do.
 
-### Moment 3: The Unexpected Use Case
-A user turned an entire landing page black-and-white to test contrast.
+---
 
-We hadn't planned for accessibility testing, but users showed us how Inspector Saab could be more than just a styling tool. It became a Swiss Army knife for web experimentation.
+### 🟨 Moment 2: “Highlight the word ‘chakra’”
 
-## Launch Strategy
+One user typed: “Highlight the word chakra in this blog.”  
+It failed. Badly.
 
-### Pre-launch Preparation
-1. Extensive testing across different websites
-2. Building a clear onboarding experience
-3. Creating safeguards against common pitfalls
+**Insight:**  
+I was only thinking in terms of tags, not inner text.  
+Real users think in **content**, not structure.
 
-### The Launch Day
-We launched with a clear message: "Edit any website using plain English." No fancy marketing, no complex explanations-just a simple tool that did what it promised.
+**Product move:**  
+Built a **text-targeting handler** for partial word matches.  
+Wrote a custom logic that walks through DOM nodes and applies spans - surgically, without breaking layout.
 
-## Key Learnings
+This feature didn’t come from imagination. It came from *embarrassment*.  
+And that’s how you learn.
 
-### Technical Insights
-1. Speed matters more than accuracy in UX
-2. Visual feedback creates trust
-3. Safe defaults prevent disasters
+---
 
-### Product Insights
-1. Users dream bigger than your features
-2. Playful tools get more creative use
-3. Clear limitations are better than vague possibilities
+### 🟨 Moment 3: “Make this scroll smoothly to top when I click”
 
-## What's Next
+I resisted event handling at first.  
+“Too risky,” I thought. “Too open-ended.”
 
-The launch is just the beginning. We're working on:
-- Adding an Undo system (it's surprisingly complex!)
-- Creating prompt presets to inspire creativity
-- Developing a "sidekick mode" that suggests changes based on page structure
+But this request kept popping up.
 
-## The Bigger Picture
+**Product move:**  
+I compromised: supported **scroll-related JavaScript events only**, with hardcoded handler functions - safe, limited, but magical.
 
-Inspector Saab isn't just a Chrome extension-it's an experiment in making the web more accessible, more playable, and more human. It's about giving everyone the power to say "I wish this looked different" and actually make it happen.
+This was my first lesson in **controlled power** - enabling just enough flexibility without opening the floodgates.
 
-We're just getting started. The web is our playground, and words are our tools.
-
-Want to be part of this journey? Try it out, break it, remix it, and let's make the web more editable, one English command at a time. 
+---

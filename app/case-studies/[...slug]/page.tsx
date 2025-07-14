@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import { getContentBySlug } from "@/lib/content";
 
 export default async function CaseStudyPage({ params }: any) {
-    const content = await getContentBySlug("case-studies", params.slug);
+    const resolvedParams = await params;
+    const content = await getContentBySlug("case-studies", resolvedParams.slug);
 
     if (!content) {
         notFound();

@@ -2,7 +2,7 @@
 title: "Technical Deep Dive: Building Your Product Name"
 description: "A comprehensive look at the technical architecture, engineering decisions, and performance optimizations in Your Product Name."
 date: "2024-03-21"
-image: "/images/blogs/your-product-name/technical-deep-dive.png"
+# image: "/images/blogs/your-product-name/technical-deep-dive.png"
 tags: ["Engineering", "Architecture", "Performance"]
 relatedProduct: "your-product-name"
 type: "Technical"
