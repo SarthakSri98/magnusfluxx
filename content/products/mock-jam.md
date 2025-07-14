@@ -12,13 +12,12 @@ tools: [
   "MongoDB"
 ]
 relatedBlogs: [
-  "mock-jam/actual-interview-experience",
-  "mock-jam/feedback",
-  "mock-jam/iteration#1",
+  "mock-jam/why",
   "mock-jam/prd",
+  "mock-jam/feedback",
   "mock-jam/skipped-a-feature",
-  "mock-jam/why"
-
+  "mock-jam/actual-interview-experience",
+  "mock-jam/iteration#1",
 ]
 # sourceUrl: "https://github.com/yourusername/mock-jam"
 liveUrl: "https://mockjam.app"

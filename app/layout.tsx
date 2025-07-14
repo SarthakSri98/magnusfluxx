@@ -55,11 +55,11 @@ export default function RootLayout({
             <main>{children}</main>
 
             {/* Footer */}
-            <footer className="mt-32 border-t border-slate-200 py-8 dark:border-slate-800">
+            {/* <footer className="mt-32 border-t border-slate-200 py-8 dark:border-slate-800">
               <div className="mx-auto max-w-7xl px-4 text-center text-sm text-slate-600 dark:text-slate-400 sm:px-6 lg:px-8">
                 © {new Date().getFullYear()} Magnus Fluxx. All rights reserved.
               </div>
-            </footer>
+            </footer> */}
           </div>
         </DarkModeProvider>
       </body>
