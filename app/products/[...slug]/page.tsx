@@ -19,14 +19,14 @@ export default async function ProductPage({ params }: any) {
     });
 
     return (
-        <article className="min-h-screen bg-white dark:bg-gray-950">
+        <article className="min-h-screen bg-white dark:bg-gray-950 mt-4">
             {/* Full Width & Height Layout */}
             <div className="w-full h-screen flex flex-col lg:flex-row overflow-hidden">
                 {/* Fixed Left Side - Product Info (20% width) */}
                 <div className="lg:w-[20%] lg:h-screen lg:fixed lg:left-0 lg:top-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 overflow-y-auto">
                     <div className="p-8 lg:p-10 h-full flex flex-col gap-10">
                         {/* Back Button */}
-                        <div className="mb-8">
+                        <div className="m-8">
                             <Link
                                 href="/"
                                 className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
