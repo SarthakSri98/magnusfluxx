@@ -1,22 +1,26 @@
 ---
 title: "Dodo Kit"
-description: "A modern, accessible design system that puts developers first. Built with React, TypeScript, and Tailwind CSS."
+description: "A digital mediakit for Influencers"
+why: "I created DodoKit to help creators who needed a well-designed media kit to reach out to brands but were deterred by the manual effort required."
+how:
+  - "Login to https://dodoclub.in"
+  - "Click on mediakit"
+  - "Fill your InstaId, you will be in a waitlist"
+  - "Dodokit does its magic"
+  - "You get notified about your brand new digital mediakit"
+highlight:
+  - "Designed the product flow and GTM strategy, reached out to hundreds of creators manually, did multiple iterations, onboarded 50 as of now."
 date: "2024-03-21"
 status: "Live"
 featured: true
 image: "/dodokit.jpeg"
-tools: [
-  "React",
-  "TypeScript",
-  "Tailwind CSS",
-  "Storybook",
-  "Radix UI"
-]
-relatedBlogs: [
-  "dodo-kit/launch-story"
-]
-sourceUrl: "https://github.com/yourusername/dodo-kit"
-liveUrl: "https://dodo-kit.vercel.app"
+tools: []
+relatedBlogs:
+  - "dodo-kit/launch-story"
+urls: 
+  - title: "Live"
+    url: "https://dodoclub.in"
+
 ---
 
 ## Overview

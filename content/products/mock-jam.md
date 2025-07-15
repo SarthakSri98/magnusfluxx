@@ -1,26 +1,30 @@
 ---
 title: "Mock Jam"
 description: "AI-Powered Mock Interviews for Product Managers"
+why: "I built MockJam to fasten up my own process of preparing for product roles by giving myself the opportunity to do quality mock interviews whenever I want."
+how:
+  - "Select interviewer style and question type"
+  - "Start interview, interviewer will recite the question"
+  - "You press enter to speak your answer"
+  - "Interviewer gives the response like a real interview"
+  - "After few back and forths, the interview ends"
+  - "You get comprehensive feedback on your strengths and weaknesses"
 status: "Live"
 featured: true
 image: "/mockjam.png"
-tools: [
-  "Node.js",
-  "OpenAI",
-  "Express",
-  "TypeScript",
-  "MongoDB"
-]
-relatedBlogs: [
-  "mock-jam/why",
-  "mock-jam/prd",
-  "mock-jam/feedback",
-  "mock-jam/skipped-a-feature",
-  "mock-jam/actual-interview-experience",
-  "mock-jam/iteration#1",
-]
+tools: []
+relatedBlogs:
+  - "mock-jam/why"
+  - "mock-jam/prd"
+  - "mock-jam/feedback"
+  - "mock-jam/skipped-a-feature"
+  - "mock-jam/actual-interview-experience"
+  - "mock-jam/iteration#1"
 # sourceUrl: "https://github.com/yourusername/mock-jam"
 liveUrl: "https://mockjam.app"
+urls:
+  - title: "Live"
+    url: "https://mockjam.app"
 ---
 
 ## Overview

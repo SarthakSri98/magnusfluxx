@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { type Frontmatter } from '@/lib/content';
+import { type Frontmatter } from '@/lib/types';
 
 interface PostCardProps {
     frontmatter: Frontmatter;
@@ -19,7 +19,7 @@ export default function PostCard({ frontmatter, href }: PostCardProps) {
         >
             <div className="relative h-48 overflow-hidden">
                 <Image
-                    src={thumbnail}
+                    src={thumbnail || '/placeholder.png'}
                     alt={title}
                     fill
                     className="object-cover transition-transform duration-200 group-hover:scale-105"
@@ -28,7 +28,7 @@ export default function PostCard({ frontmatter, href }: PostCardProps) {
 
             <div className="p-6">
                 <div className="flex flex-wrap gap-2 mb-3">
-                    {tags.map((tag) => (
+                    {(tags ?? []).map((tag) => (
                         <span
                             key={tag}
                             className="px-2 py-1 text-xs font-medium rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300"

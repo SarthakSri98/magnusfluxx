@@ -1,11 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import { BlogPost } from '@/lib/blog'
 import BlogCard from './BlogCard'
 
 interface BlogListProps {
-    initialPosts: BlogPost[]
+    initialPosts: any[] // TODO: Replace BlogPost with equivalent from '@/lib/blogs' if available
 }
 
 export default function BlogList({ initialPosts }: BlogListProps) {

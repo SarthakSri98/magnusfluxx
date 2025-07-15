@@ -1,141 +1,82 @@
 import Link from "next/link";
 import { getAllContent } from "@/lib/content";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import Image from "next/image";
+import ProductCard from "@/components/ProductCard";
 
 export default async function Home() {
     const products = await getAllContent("products");
     const blogs = await getAllContent("blogs");
 
     return (
-        <main className="min-h-screen bg-white dark:bg-gray-950">
+        <main className="min-h-screen">
+            {/* Indie Navigation Shortcuts */}
+            <nav className="w-full flex justify-center gap-6 pt-4 mb-12">
+                <Link href="/products" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 text-lg font-semibold shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                    <span role="img" aria-label="Products">🛠️</span> Products
+                </Link>
+                <Link href="/case-studies" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 text-lg font-semibold shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                    <span role="img" aria-label="Case Studies">📖</span> Case Studies
+                </Link>
+                <Link href="/blogs" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 text-lg font-semibold shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                    <span role="img" aria-label="Blogs">📝</span> Blogs
+                </Link>
+            </nav>
             {/* Hero Section */}
-            <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950 py-24 sm:py-32">
-                <div className="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
-                    <div className="blur-[106px] h-56 bg-gradient-to-br from-blue-500 to-purple-400" />
-                    <div className="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-indigo-600" />
-                </div>
-                <div className="max-w-7xl mx-auto px-4 relative">
-                    <div className="text-center">
-                        <h1 className="text-4xl sm:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-gray-100 dark:to-gray-300 mb-6">
-                            Building the Future
-                        </h1>
-                        <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-                            A collection of innovative products pushing the boundaries of technology.
-                            From AI-powered tools to developer utilities, explore what&apos;s possible.
-                        </p>
-                    </div>
+            <section className="relative py-20 sm:py-28 flex flex-col items-center justify-center border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950">
+                <div className="max-w-3xl mx-auto px-4 text-center">
+                    <h1 className="text-5xl sm:text-7xl font-extrabold text-gray-900 dark:text-white mb-8">
+                        Hi, I’m Sarthak <span className="inline-block animate-wiggle">👋</span>
+                    </h1>
+                    <p className="text-2xl sm:text-3xl font-semibold text-gray-700 dark:text-gray-200 mb-8 leading-relaxed">
+                        <span className="inline-flex items-center gap-2 font-bold text-2xl mt-2">
+                            <Sparkles className="w-6 h-6 text-yellow-500 dark:text-yellow-400 animate-pulse" />
+                            Building, learning, and sharing the journey.
+                        </span>
+                    </p>
+                    <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                        Here you’ll find the products I’ve built, the stories behind them, and the lessons learned along the way.
+                    </p>
                 </div>
             </section>
 
             {/* Products Grid */}
-            <section className="max-w-7xl mx-auto px-4 py-24">
+            <section className="max-w-7xl mx-auto px-4 py-20 border-b border-gray-100 dark:border-gray-800">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                        Featured Products
+                    <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
+                        🚀 Featured Indie Products
                     </h2>
-                    <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                        Explore innovative tools and applications that push the boundaries of technology.
+                    <p className="text-2xl text-gray-700 dark:text-gray-200 max-w-2xl mx-auto font-medium">
+                        Not just tools stories, experiments, and playgrounds for new ideas.
                     </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {products.map((product) => (
-                        <Link
-                            key={product.slugPath.join("/")}
-                            href={`/products/${product.slugPath.join("/")}`}
-                            className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
-                        >
-                            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                            <div className="relative">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <span className="text-sm font-medium px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400">
-                                        {product.frontmatter.status}
-                                    </span>
-                                </div>
-
-                                <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                                    {product.frontmatter.title}
-                                </h2>
-
-                                {product.frontmatter.image && (
-                                    <Image
-                                        src={product.frontmatter.image}
-                                        alt={`${product.frontmatter.title} cover`}
-                                        width={500}
-                                        height={192}
-                                        className="w-full h-48 object-cover rounded-lg mb-4"
-                                        loading="lazy"
-                                    />
-                                )}
-
-                                <p className="text-gray-600 dark:text-gray-400 mb-6">
-                                    {product.frontmatter.description}
-                                </p>
-
-                                {/* Tech Stack */}
-                                <div className="flex flex-wrap gap-2 mb-6">
-                                    {product.frontmatter.tools?.map((tool) => (
-                                        <span
-                                            key={tool}
-                                            className="text-sm px-3 py-1 rounded-full bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"
-                                        >
-                                            {tool}
-                                        </span>
-                                    ))}
-                                </div>
-
-                                {/* Related Blogs */}
-                                {product.frontmatter.relatedBlogs && product.frontmatter.relatedBlogs.length > 0 && (
-                                    <div className="space-y-3">
-                                        <h3 className="text-sm font-medium text-gray-900 dark:text-white">Related Articles</h3>
-                                        <div className="space-y-2">
-                                            {product.frontmatter.relatedBlogs.map((blogPath) => {
-                                                const blog = blogs.find(b => b.slugPath.join("/") === blogPath);
-                                                if (!blog) return null;
-                                                return (
-                                                    <Link
-                                                        key={blogPath}
-                                                        href={`/blogs/${blogPath}`}
-                                                        className="block text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
-                                                    >
-                                                        {blog.frontmatter.title}
-                                                    </Link>
-                                                );
-                                            })}
-                                        </div>
-                                    </div>
-                                )}
-
-                                <div className="absolute bottom-8 right-8">
-                                    <ArrowRight className="w-6 h-6 text-gray-400 group-hover:text-blue-500 transform group-hover:translate-x-1 transition-all" />
-                                </div>
-                            </div>
-                        </Link>
+                <div className="flex flex-col gap-14">
+                    {products.reverse().map((product) => (
+                        <ProductCard key={product.slugPath.join("/")} product={product} blogs={blogs} />
                     ))}
                 </div>
             </section>
 
             {/* Featured Blogs Section */}
             {blogs.length > 0 && (
-                <section className="max-w-7xl mx-auto px-4 py-24">
+                <section className="max-w-7xl mx-auto px-4 py-20">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                            Latest Articles
+                        <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
+                            ✨ Latest Stories & Deep Dives
                         </h2>
-                        <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                            Insights, stories, and technical deep-dives from our product development journey.
+                        <p className="text-2xl text-gray-700 dark:text-gray-200 max-w-2xl mx-auto font-medium">
+                            Insights, experiments, and behind-the-scenes from my indie product journey.
                         </p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                         {blogs.slice(0, 6).map((blog) => (
                             <Link
                                 key={blog.slugPath.join("/")}
                                 href={`/blogs/${blog.slugPath.join("/")}`}
-                                className="group block overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+                                className="group block overflow-hidden rounded-xl bg-white dark:bg-gray-900 shadow-sm hover:shadow-lg border border-gray-200 dark:border-gray-800 hover:scale-[1.03] transition-all duration-300 p-8"
                             >
                                 {blog.frontmatter.image && (
-                                    <div className="relative h-48 overflow-hidden">
+                                    <div className="relative h-48 overflow-hidden rounded-lg mb-6">
                                         <Image
                                             src={blog.frontmatter.image}
                                             alt={blog.frontmatter.title}
@@ -146,50 +87,61 @@ export default async function Home() {
                                         />
                                     </div>
                                 )}
-                                <div className="p-6">
-                                    <div className="flex items-center gap-2 mb-3">
-                                        <span className="text-sm font-medium px-3 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400">
-                                            Blog
-                                        </span>
-                                        {blog.frontmatter.date && (
-                                            <span className="text-sm text-gray-500 dark:text-gray-400">
-                                                {new Date(blog.frontmatter.date).toLocaleDateString()}
-                                            </span>
-                                        )}
+                                <div>
+                                    <div className="mb-4 flex items-center gap-2 text-sm text-gray-500 font-medium">
+                                        <span role="img" aria-label="Story">📖</span> Story
                                     </div>
-                                    <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+                                    <blockquote className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6 leading-relaxed border-l-4 border-pink-400 pl-4 bg-gray-50 dark:bg-gray-900">
+                                        {blog.frontmatter.description}
+                                    </blockquote>
+                                    <h3 className="text-2xl font-extrabold mb-4 text-gray-900 dark:text-white">
                                         {blog.frontmatter.title}
                                     </h3>
-                                    {blog.frontmatter.description && (
-                                        <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
-                                            {blog.frontmatter.description}
-                                        </p>
+                                    {/* Blog Hook or Learnings */}
+                                    {(blog.frontmatter.hook || (blog.frontmatter.learnings && blog.frontmatter.learnings.length > 0)) && (
+                                        <div className="mb-6 p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-800 shadow-inner flex items-start gap-3">
+                                            <Sparkles className="w-6 h-6 text-yellow-500 dark:text-yellow-400 flex-shrink-0 mt-1" />
+                                            <div>
+                                                {blog.frontmatter.hook && (
+                                                    <p className="text-lg font-bold text-pink-700 dark:text-pink-300 mb-1">
+                                                        {blog.frontmatter.hook}
+                                                    </p>
+                                                )}
+                                                {blog.frontmatter.learnings && blog.frontmatter.learnings.length > 0 && (
+                                                    <ul className="list-disc pl-5 space-y-1 text-base text-purple-700 dark:text-purple-300">
+                                                        {blog.frontmatter.learnings.map((item: string, idx: number) => (
+                                                            <li key={idx}>{item}</li>
+                                                        ))}
+                                                    </ul>
+                                                )}
+                                            </div>
+                                        </div>
                                     )}
-                                    <div className="flex items-center justify-between">
+                                    <div className="flex items-center justify-between mt-4">
                                         <div className="flex flex-wrap gap-2">
                                             {blog.frontmatter.tags?.slice(0, 2).map((tag) => (
                                                 <span
                                                     key={tag}
-                                                    className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300"
+                                                    className="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-medium shadow-sm border border-gray-100 dark:border-gray-700"
                                                 >
                                                     {tag}
                                                 </span>
                                             ))}
                                         </div>
-                                        <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-blue-500 transform group-hover:translate-x-1 transition-all" />
+                                        <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-pink-500 transform group-hover:translate-x-1 transition-all" />
                                     </div>
                                 </div>
                             </Link>
                         ))}
                     </div>
                     {blogs.length > 6 && (
-                        <div className="text-center mt-12">
+                        <div className="text-center mt-16">
                             <Link
                                 href="/blogs"
-                                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+                                className="inline-flex items-center gap-2 px-8 py-4 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 text-lg font-bold shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition"
                             >
-                                View All Articles
-                                <ArrowRight className="w-4 h-4" />
+                                View All Stories
+                                <ArrowRight className="w-6 h-6" />
                             </Link>
                         </div>
                     )}

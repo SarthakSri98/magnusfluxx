@@ -1,39 +1,65 @@
 ---
-title: "Launching Dodo Kit: A New Era of Design Systems"
-description: "The journey of creating a modern, accessible design system that puts developers first."
+title: "Introducing Dodo MediaKit: Built for Creators, Loved by Brands"
+description: "The behind-the-scenes story of creating a media kit that finally speaks your language – fast, clean, and made to impress."
 date: "2024-03-21"
-tags: ["design-system", "launch", "development"]
+tags: ["mediakit", "launch", "creator-tools"]
 ---
 
-# Launching Dodo Kit: A New Era of Design Systems
+# Introducing Dodo MediaKit: Built for Creators, Loved by Brands
 
-When we set out to build Dodo Kit, we had one goal in mind: create a design system that developers would actually enjoy using. No more bloated components, no more fighting with styles, just pure, clean, and accessible components that work out of the box.
+When we started working on Dodo MediaKit, we weren’t trying to reinvent the wheel.  
+We were fixing the flat tires that every creator had been silently dragging for years.
+
+Clunky PDFs. Awkward Google Docs. Lost DMs.  
+Brand deals slipping through cracks just because your pitch didn’t *look* as solid as your content.
+
+We thought — enough.
 
 ## The Vision
 
-We wanted to create something that would:
-- Be truly accessible by default
-- Have minimal bundle size
-- Support both light and dark modes seamlessly
-- Be easy to customize without fighting the framework
+Our goal was simple:  
+**Make you look as pro as your content feels.**
 
-## Key Features
+No downloads. No design degree needed.  
+Just a clean, modern MediaKit that speaks for you — instantly.
 
-### 1. Accessibility First
-Every component is built with ARIA in mind. We don't just add aria-labels as an afterthought – accessibility is baked into the core design.
+We built Dodo MediaKit to:
 
-### 2. Performance Focused
-The entire system is tree-shakeable, meaning you only ship what you use. No more bloated bundles.
+- **Impress brands at first glance**  
+- **Auto-update with your latest stats**  
+- **Be mobile-friendly and shareable as a single link**  
+- **Feel premium, even if you're just starting out**
 
-### 3. Developer Experience
-We've focused heavily on making the API intuitive. Every component follows similar patterns, making it easy to learn and use.
+## What Makes It Different?
 
-## What's Next
+### 1. Designed *with* Brands in Mind  
+It’s not just pretty. It’s persuasive.  
+We talked to agencies and brand reps to figure out what they actually want to see.  
+Then we made sure your MediaKit delivers exactly that.
 
-We're already working on:
-- More complex components
-- Animation primitives
-- Better documentation
-- Community templates
+### 2. Create Once, Share Forever  
+You only build it once.  
+After that, it’s a living, breathing link.  
+No versioning headaches. No re-exporting.  
+You update your content — Dodo does the rest.
 
-Stay tuned for more updates as we continue to evolve Dodo Kit into the most developer-friendly design system out there. 
+### 3. Stats That Sell  
+Follower counts, engagement rates, recent collabs — all structured beautifully so brands can say "yes" faster.  
+Add your best content, your rates, and let the kit do the talking.
+
+## What’s Next?
+
+We’re already working on:
+
+- More layout styles and themes  
+- Analytics to track how brands interact with your kit  
+- One-click export to branded PDF (for old-school folks)  
+- Creator-powered templates you can remix
+
+---
+
+Whether you’re pitching your dream brand or replying to a DM —  
+**Dodo MediaKit gives you the upper hand.**
+
+It’s not just a kit.  
+It’s your *first impression*, finally done right.

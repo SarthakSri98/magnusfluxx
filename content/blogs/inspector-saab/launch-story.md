@@ -1,5 +1,5 @@
 ---
-title: "Building and Launching Inspector Saab: Making Web Editing Human"
+title: "🕵️‍♂️ Building and Launching Inspector Saab: Making Web Editing Human"
 description: "The journey of creating a Chrome extension that lets anyone edit any website using plain English-no code required."
 date: "2024-03-20"
 image: "/inspectorsaab.png"
@@ -8,10 +8,6 @@ relatedProduct: "inspector-saab"
 type: "Product Story"
 featured: true
 ---
-# 🕵️‍♂️ Building Inspector Saab  
-### What a Chrome extension taught me about product thinking in the age of AI
-
-> “I didn’t build a text-to-JSON tool. I built an interface for human intent.”
 
 ---
 
@@ -40,7 +36,7 @@ For a quick overview of how Inspector Saab works, check out our [YouTube demo](h
 
 Here are a few moments where real user friction shaped real product decisions:
 
-### 🟨 Moment 1: The Blank Prompt Paralysis  
+### Moment 1: The Blank Prompt Paralysis  
 **User behavior:** They'd install the extension, open the popup… and freeze.
 
 **Why?**  
@@ -55,7 +51,7 @@ I added **suggested prompts** - like “make the text red” or “add a scroll 
 
 ---
 
-### 🟨 Moment 2: “Highlight the word ‘chakra’”
+### Moment 2: “Highlight the word ‘chakra’”
 
 One user typed: “Highlight the word chakra in this blog.”  
 It failed. Badly.
@@ -73,7 +69,7 @@ And that’s how you learn.
 
 ---
 
-### 🟨 Moment 3: “Make this scroll smoothly to top when I click”
+### Moment 3: “Make this scroll smoothly to top when I click”
 
 I resisted event handling at first.  
 “Too risky,” I thought. “Too open-ended.”
@@ -84,5 +80,3 @@ But this request kept popping up.
 I compromised: supported **scroll-related JavaScript events only**, with hardcoded handler functions - safe, limited, but magical.
 
 This was my first lesson in **controlled power** - enabling just enough flexibility without opening the floodgates.
-
----

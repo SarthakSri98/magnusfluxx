@@ -2,7 +2,7 @@
 
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import Image from 'next/image';
-import { type ContentItem } from '@/lib/content';
+import { type ContentItem } from '@/lib/types';
 import PostCard from './PostCard';
 
 interface PostPageProps {
@@ -45,7 +45,7 @@ export default function PostPage({ item, type, mdxSource }: PostPageProps) {
                     <div className="prose dark:prose-invert max-w-none">
                         <div className="relative h-64 mb-8 rounded-2xl overflow-hidden">
                             <Image
-                                src={thumbnail}
+                                src={thumbnail || ''}
                                 alt={title}
                                 fill
                                 className="object-cover"
@@ -53,7 +53,7 @@ export default function PostPage({ item, type, mdxSource }: PostPageProps) {
                         </div>
 
                         <div className="flex flex-wrap gap-2 mb-6">
-                            {tags.map((tag) => (
+                            {tags && tags.map((tag: string) => (
                                 <span
                                     key={tag}
                                     className="px-3 py-1 text-sm font-medium rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300"
@@ -79,7 +79,7 @@ export default function PostPage({ item, type, mdxSource }: PostPageProps) {
                             <div className="mt-12 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl">
                                 <h3 className="text-lg font-bold mb-4">What I Learned</h3>
                                 <ul className="space-y-2">
-                                    {learned.map((item, index) => (
+                                    {learned.map((item: string, index: number) => (
                                         <li key={index} className="flex items-start">
                                             <span className="text-green-500 mr-2">✓</span>
                                             {item}

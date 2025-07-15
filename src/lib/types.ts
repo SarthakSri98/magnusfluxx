@@ -16,6 +16,11 @@ export interface Frontmatter {
     sourceUrl?: string;
     liveUrl?: string;
     relatedBlogs?: string[];
+    // Blog/Product card fields
+    hook?: string;
+    metric?: string;
+    thumbnail?: string;
+    learned?: string[];
 }
 
 export interface ContentItem {

@@ -19,14 +19,14 @@ export default async function ProductPage({ params }: any) {
     });
 
     return (
-        <article className="min-h-screen bg-white dark:bg-gray-950 mt-4">
+        <article className="min-h-screen bg-white dark:bg-gray-950">
             {/* Full Width & Height Layout */}
             <div className="w-full h-screen flex flex-col lg:flex-row overflow-hidden">
                 {/* Fixed Left Side - Product Info (20% width) */}
                 <div className="lg:w-[20%] lg:h-screen lg:fixed lg:left-0 lg:top-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 overflow-y-auto">
                     <div className="p-8 lg:p-10 h-full flex flex-col gap-10">
                         {/* Back Button */}
-                        <div className="m-8">
+                        <div className="m-8 ml-2 cursor-pointer">
                             <Link
                                 href="/"
                                 className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
@@ -186,13 +186,13 @@ export default async function ProductPage({ params }: any) {
                                                     <div className={`w-full lg:w-1/2 ${isLeft ? 'lg:pr-8' : 'lg:pl-8'}`}>
                                                         <article className="relative bg-gradient-to-br from-white via-purple-50/30 to-blue-50/30 dark:from-gray-900 dark:via-gray-800/30 dark:to-gray-900/30 rounded-[2rem] p-8 lg:p-10 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(168,85,247,0.3)] transition-all duration-500 border border-purple-100/50 dark:border-purple-900/50 group-hover:scale-[1.02] overflow-hidden">
                                                             {/* Fancy Background Effects */}
-                                                            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-blue-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                                            <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 via-blue-500 to-pink-500 rounded-[2rem] opacity-0 group-hover:opacity-10 blur-xl transition-all duration-500" />
+                                                            {/* <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-blue-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" /> */}
+                                                            {/* <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 via-blue-500 to-pink-500 rounded-[2rem] opacity-0 group-hover:opacity-10 blur-xl transition-all duration-500" /> */}
 
                                                             {/* Content */}
                                                             <div className="relative z-10">
                                                                 <div className="flex items-center gap-4 mb-6">
-                                                                    <span className="text-sm font-semibold px-4 py-2 rounded-full bg-gradient-to-r from-purple-500 to-blue-400 text-white shadow-lg group-hover:shadow-purple-500/25 transition-shadow duration-500">
+                                                                    <span className="text-sm font-semibold px-4 py-2 rounded-full bg-gradient-to-r from-purple-500 to-blue-400 text-white shadow-lg">
                                                                         Chapter {index + 1}
                                                                     </span>
                                                                     {blog.frontmatter.date && (
@@ -206,7 +206,7 @@ export default async function ProductPage({ params }: any) {
                                                                     )}
                                                                 </div>
 
-                                                                <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-500 group-hover:via-blue-500 group-hover:to-pink-500 transition-all duration-300">
+                                                                <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
                                                                     {blog.frontmatter.title}
                                                                 </h3>
 

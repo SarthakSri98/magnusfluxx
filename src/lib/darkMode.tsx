@@ -19,15 +19,15 @@ export function DarkModeProvider({ children }: { children: React.ReactNode }) {
         // On mount, read the theme from localStorage or system preference
         const savedTheme = localStorage.getItem('theme')
         const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-        const initialTheme = savedTheme === 'dark' || (!savedTheme && systemTheme)
+        const initialTheme = savedTheme === 'light' || (!savedTheme && systemTheme)
 
         setIsDarkMode(initialTheme)
 
         // Apply the initial theme
         if (initialTheme) {
-            document.documentElement.classList.add('dark')
+            document.documentElement.classList.add('light')
         } else {
-            document.documentElement.classList.remove('dark')
+            document.documentElement.classList.remove('light')
         }
     }, [])
 
