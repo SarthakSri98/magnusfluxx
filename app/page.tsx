@@ -9,18 +9,18 @@ export default async function Home() {
     const blogs = await getAllContent("blogs");
 
     return (
-        <main className="min-h-screen">
+        <main className="min-h-screen scroll-smooth">
             {/* Indie Navigation Shortcuts */}
             <nav className="w-full flex justify-center gap-6 pt-4 mb-12">
-                <Link href="/products" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 text-lg font-semibold shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                <a href="#products" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 text-lg font-semibold shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition">
                     <span role="img" aria-label="Products">🛠️</span> Products
-                </Link>
-                <Link href="/case-studies" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 text-lg font-semibold shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                </a>
+                <a href="#case-studies" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 text-lg font-semibold shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition">
                     <span role="img" aria-label="Case Studies">📖</span> Case Studies
-                </Link>
-                <Link href="/blogs" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 text-lg font-semibold shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                </a>
+                <a href="#blogs" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 text-lg font-semibold shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition">
                     <span role="img" aria-label="Blogs">📝</span> Blogs
-                </Link>
+                </a>
             </nav>
             {/* Hero Section */}
             <section className="relative py-20 sm:py-28 flex flex-col items-center justify-center border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950">
@@ -41,7 +41,7 @@ export default async function Home() {
             </section>
 
             {/* Products Grid */}
-            <section className="max-w-7xl mx-auto px-4 py-20 border-b border-gray-100 dark:border-gray-800">
+            <section id="products" className="max-w-7xl mx-auto px-4 py-20 border-b border-gray-100 dark:border-gray-800">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
                         🚀 Featured Indie Products
@@ -57,9 +57,21 @@ export default async function Home() {
                 </div>
             </section>
 
+            {/* Case Studies Section (placeholder) */}
+            <section id="case-studies" className="max-w-7xl mx-auto px-4 py-20 border-b border-gray-100 dark:border-gray-800">
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
+                        📖 Case Studies
+                    </h2>
+                    <p className="text-2xl text-gray-700 dark:text-gray-200 max-w-2xl mx-auto font-medium">
+                        Deep dives and stories from my product journey. (Coming soon)
+                    </p>
+                </div>
+            </section>
+
             {/* Featured Blogs Section */}
             {blogs.length > 0 && (
-                <section className="max-w-7xl mx-auto px-4 py-20">
+                <section id="blogs" className="max-w-7xl mx-auto px-4 py-20">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
                             ✨ Latest Stories & Deep Dives
