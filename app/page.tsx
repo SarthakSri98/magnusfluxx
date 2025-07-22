@@ -3,6 +3,7 @@ import { getAllContent } from "@/lib/content";
 import { ArrowRight, Sparkles } from "lucide-react";
 import Image from "next/image";
 import ProductCard from "@/components/ProductCard";
+import './globals.css'
 
 export default async function Home() {
     const products = await getAllContent("products");
