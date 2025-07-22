@@ -30,7 +30,7 @@ export default function RootLayout({
       <head>
         <ThemeScript />
       </head>
-      <body className={`${inter.variable} ${openSans.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${openSans.variable} font-sans antialiased bg-white text-slate-900`}>
         <div className="relative min-h-screen bg-white text-slate-900 transition-colors">
           {/* Header with theme toggle */}
           {/* <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur dark:border-slate-800 dark:bg-slate-950/80">
